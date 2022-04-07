@@ -4,14 +4,26 @@
     
     <p>Order: 
       This is order {{ order.id }} for
-      {{user.first_name}} {{user.last_name}}. The order was placed on: {{ order.created_date }} 
-   </p>
-  <p>The order includes these items:</p>
-  {% for line_item in line_items %}
-  <p>
-   Quantity: {{ line_item.quantity}}  Item: {{ line_item.product }}
-  </p>
-  
-  {% endfor %}
-   
+      {{user.first_name}} {{user.last_name}} (user name: {{ user.username }}. The order was placed on: {{ order.created_date }}
+    </p>
+    <p>The order includes these items:</p>
+    <table>
+        <tr>
+            <th>Quantity</th>
+            <th>Product</th>
+            <th>Price per item</th>
+            <th>Total</th>
+        </tr>
+        {% for line_item in line_items %}
+        <tr>
+            <td>{{ line_item.quantity }}</td>
+            <td>{{ line_item.product.name }}</td>
+            <td>{{ line_item.product.price }}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+
     {% endblock %}

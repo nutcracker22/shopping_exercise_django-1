@@ -6,6 +6,18 @@
       This is {{ user.first_name }} {{ user.last_name }} who lives at 
       {{user.customer.address}}. You can reach them at {{ user.email }} 
    </p>
-  <p>Modify the method to also supply the customer's orders</p>
-   
-    {% endblock %}
+  <p>Orders:</p>
+      <table>
+          <tr>
+              <th>Order ID</th>
+              <th>Created at</th>
+          </tr>
+          {% for order in orders %}
+          <tr>
+              <td><a href="{% url 'shop:order_detail' id=order.id %}">{{ order.id }}</a></td>
+              <td>{{ order.created_date }}</td>
+          </tr>
+          {% endfor %}
+      </table>
+
+{% endblock %}

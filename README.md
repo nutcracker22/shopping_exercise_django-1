@@ -108,7 +108,7 @@ You may want to refer to the shop/models.py file to understand the database sche
 
 You might also want to spend a few minutes at the start of each round planning what you might want to do.
 
-You'll see that this version works with the objects in the shop/models.py file to manipulate the data we display on the page. This means we've mostly abstracted away the SQL, and are working with objects for our queries and the dislay of results.
+You'll see that this version works with the objects in the shop/models.py file to manipulate the data we display on the page. This means we've mostly abstracted away the SQL, and are working with objects for our queries and the display of results.
 
 There are some forms here for the products. These add the basic CRUD methods (create, read, update and delete). You could add similar ones for other objects.
 
