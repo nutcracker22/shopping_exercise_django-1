@@ -3,7 +3,8 @@ from django.conf import settings
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views.decorators.http import require_POST
 from shop.models import Product
-from shop.forms import BasketAddProductForm 
+from shop.forms import BasketAddProductForm
+from django.utils import translation
 
 class Basket(object):
     # a data transfer object to shift items from cart to page

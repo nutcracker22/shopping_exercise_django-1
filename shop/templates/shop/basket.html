@@ -1,8 +1,12 @@
 {% extends 'shop/base.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_language_info for LANGUAGE_CODE as current_lang %}
 {% block content %}
-    <h1>Acme Shopping: Your Basket</h1>
+    <h1>Acme Shopping: {{ LANGUAGE_CODE }} {{ current_lang.name }}{% trans "Your Basket" %}</h1>
     
-<h2>You have these in your basket:</h2>
+<h2>{% trans "You have these in your basket:" %}</h2>
+<!-- Current language: {{ LANGUAGE_CODE }} -->
  <table>
   {% for item in basket %}
         {% with product=item.product %}
@@ -38,9 +42,8 @@
       </tr>
   </table>
   <p class="text-right">
-    <a href="{% url "shop:product_list" %}" class="button
-    light">Continue shopping</a>
+    <a href="{% url 'shop:product_list' %}" class="button light">{% trans "Continue shopping" %}</a>
   </p>
  
-   <a href="{% url 'shop:purchase' %}">Purchase</a>
+   <a href="{% url 'shop:purchase' %}">{% trans "Purchase" %}</a>
  {% endblock %}

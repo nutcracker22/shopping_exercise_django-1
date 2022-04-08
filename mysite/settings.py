@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'django.middleware.locale.LocaleMiddleware',
 ]
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
@@ -114,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'de'
 
 TIME_ZONE = 'UTC'
 
@@ -124,6 +125,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE_ROOT = os.path.dirname(os.path.realpath(__name__))
+LOCALE_PATHS = ( os.path.join(SITE_ROOT, 'locale'), )
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

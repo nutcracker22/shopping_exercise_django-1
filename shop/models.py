@@ -21,9 +21,15 @@ class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True,)
     address = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
+    LANGUAGE_CHOICES = (
+        ('en-us', 'English'),
+        ('de', 'German'),
+    )
+
+    language = models.CharField(default='en-us', choices=LANGUAGE_CHOICES, max_length=5)
 
     def __str__(self):
-        return f'{self.user.email}, {self.customer.address}'
+        return f'{self.user.email}, {self.address}'
 
     class Meta:
         db_table = 'customer'
